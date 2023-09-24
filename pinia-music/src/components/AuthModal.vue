@@ -126,5 +126,15 @@ export default {
 <script setup>
 const musicStore = useMusicStore();
 const closeModal = ref(false);
+// SetInterval function that goes off every five minutes
+setInterval(function () {
+    checkAuthStatus()
+}, 300000)
+
+function checkAuthStatus() {
+    if (!musicStore.isAuth) {
+        closeModal.value = false
+    }
+}
 
 </script>
